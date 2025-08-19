@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | نقاء</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="شعار نقاء">
+            <h1>نقاء</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="maps.html"><i class="fas fa-map"></i> الخرائط</a></li>
+            <li><a href="tips.html"><i class="fas fa-lightbulb"></i> نصائح</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> عن المشروع</a></li>
+            <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> تواصل</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main>
+        <section class="contact-hero">
+            <div class="hero-content">
+                <h2>تواصل مع فريق نقاء</h2>
+                <p>نرحب بأسئلتكم واستفساراتكم حول جودة الهواء في مدينتكم</p>
+            </div>
+        </section>
+        
+        <section class="contact-form-section">
+            <h2 class="section-title">أرسل رسالتك</h2>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">الاسم الكامل</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">الموضوع</label>
+                    <select id="subject" name="subject">
+                        <option value="general">استفسار عام</option>
+                        <option value="data">استفسار عن البيانات</option>
+                        <option value="partnership">شراكة أو تعاون</option>
+                        <option value="media">استفسار إعلامي</option>
+                        <option value="other">موضوع آخر</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">الرسالة</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">إرسال الرسالة</button>
+            </form>
+            
+            <div id="thankYouMessage" class="thank-you-message" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+                <h3>شكرًا لتواصلك معنا!</h3>
+                <p>لقد تم استلام رسالتك وسنتواصل معك في أقرب وقت ممكن.</p>
+                <button class="btn" onclick="resetForm()">إرسال رسالة جديدة</button>
+            </div>
+        </section>
+        
+        <section class="contact-info">
+            <h2 class="section-title">معلومات التواصل</h2>
+            <div class="info-container">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>العنوان</h3>
+                    <p>الرياض، حي الملقا<br>شارع الملك فهد، مبنى رقم 123</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>الهاتف</h3>
+                    <p>0112345678<br>0501234567</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>البريد الإلكتروني</h3>
+                    <p>info@nqaa.com<br>support@nqaa.com</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>ساعات العمل</h3>
+                    <p>الأحد - الخميس<br>8:00 ص - 4:00 م</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq">
+            <h2 class="section-title">أسئلة متكررة</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">كيف يتم قياس جودة الهواء؟<i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>نستخدم شبكة من محطات الرصد المجهزة بأحدث الحساسات لقياس ملوثات الهواء الرئيسية مثل الجسيمات الدقيقة (PM2.5 و PM10) وثاني أكسيد النيتروجين (NO2) والأوزون (O3). يتم نقل البيانات بشكل لحظي إلى خوادمنا لمعالجتها وعرضها.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">كم عدد محطات الرصد في المدينة؟<i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>حاليًا لدينا 20 محطة رصد موزعة في مختلف أحياء المدينة، ونعمل على زيادة هذا العدد لتغطية جميع المناطق بشكل أفضل.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">كيف يمكنني المساهمة في المشروع؟<i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>يمكنك المساهمة بعدة طرق: مشاركة البيانات مع أصدقائك وعائلتك، الإبلاغ عن أي مصادر تلوث تلاحظها، أو حتى التبرع لزيادة عدد محطات الرصد في المدينة.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">هل البيانات متاحة للباحثين؟<i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>نعم، نقدم بيانات تاريخية وحالية للباحثين والجهات الأكاديمية لأغراض البحث العلمي. يمكنك التواصل معنا عبر البريد الإلكتروني للحصول على التفاصيل.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- تذييل الصفحة -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="maps.html">الخرائط</a></li>
+                    <li><a href="tips.html">النصائح</a></li>
+                    <li><a href="about.html">عن المشروع</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>تواصل معنا</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 0112345678</li>
+                    <li><i class="fas fa-envelope"></i> info@nqaa.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> نجران السعودية</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>تابعنا</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 منصة نقاء. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+        
+        // Contact Form Handling
+        const contactForm = document.getElementById('contactForm');
+        const thankYouMessage = document.getElementById('thankYouMessage');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // هنا في الواقع سيتم إرسال البيانات إلى الخادم
+            // لكننا سنحاكي ذلك فقط لعرض رسالة الشكر
+            contactForm.style.display = 'none';
+            thankYouMessage.style.display = 'block';
+            
+            // يمكنك هنا إضافة كود لإرسال البيانات إلى الخادم إذا كان موجودًا
+            // مثلاً باستخدام fetch API
+        });
+        
+        function resetForm() {
+            contactForm.reset();
+            contactForm.style.display = 'block';
+            thankYouMessage.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

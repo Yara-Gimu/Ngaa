@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نقاء - منصة مراقبة جودة الهواء في نجران</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="شعار نقاء">
+            <h1>نقاء</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="maps.html"><i class="fas fa-map"></i> الخرائط</a></li>
+            <li><a href="tips.html"><i class="fas fa-lightbulb"></i> نصائح</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> عن المشروع</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>مراقبة جودة الهواء في نجران</h2>
+                <p>منصة "نقاء" تقدم بيانات حية عن جودة الهواء في منطقة نجران لمساعدتك على اتخاذ القرارات الصحية الصحيحة</p>
+                <a href="#dashboard" class="btn">استعرض البيانات</a>
+            </div>
+        </section>
+
+        <section id="dashboard" class="dashboard">
+            <h2 class="section-title">لوحة بيانات جودة الهواء في نجران</h2>
+            <div class="cards-container">
+                <div class="card" id="pm25-card">
+                    <h3>PM2.5</h3>
+                    <div class="value" id="pm25-value">--</div>
+                    <div class="status" id="pm25-status">جار التحميل...</div>
+                </div>
+                <div class="card" id="pm10-card">
+                    <h3>PM10</h3>
+                    <div class="value" id="pm10-value">--</div>
+                    <div class="status" id="pm10-status">جار التحميل...</div>
+                </div>
+                <div class="card" id="no2-card">
+                    <h3>NO2</h3>
+                    <div class="value" id="no2-value">--</div>
+                    <div class="status" id="no2-status">جار التحميل...</div>
+                </div>
+                <div class="card" id="o3-card">
+                    <h3>O3</h3>
+                    <div class="value" id="o3-value">--</div>
+                    <div class="status" id="o3-status">جار التحميل...</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="alerts">
+            <h2 class="section-title">إشعارات نجران</h2>
+            <div class="alert-container">
+                <div class="alert" id="alert1">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>انخفاض في جودة الهواء في وسط نجران بسبب النشاط الزراعي</p>
+                </div>
+                <div class="alert" id="alert2">
+                    <i class="fas fa-info-circle"></i>
+                    <p>جودة الهواء جيدة اليوم في معظم أحياء نجران</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- تذييل الصفحة -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="maps.html">الخرائط</a></li>
+                    <li><a href="tips.html">النصائح</a></li>
+                    <li><a href="about.html">عن المشروع</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>تواصل معنا</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 0175221234</li>
+                    <li><i class="fas fa-envelope"></i> najran@nqaa.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> نجران، السعودية</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>تابعنا</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 منصة نقاء. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

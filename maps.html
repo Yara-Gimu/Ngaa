@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خرائط جودة الهواء في نجران | نقاء</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="شعار نقاء">
+            <h1>نقاء</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="maps.html" class="active"><i class="fas fa-map"></i> الخرائط</a></li>
+            <li><a href="tips.html"><i class="fas fa-lightbulb"></i> نصائح</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> عن المشروع</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main>
+        <section class="map-section">
+            <h2 class="section-title">خريطة جودة الهواء في نجران</h2>
+            <p>استعرض جودة الهواء في مختلف أحياء نجران حسب أحدث القراءات من محطات المراقبة</p>
+            
+            <div class="map-filters">
+                <div class="filter">
+                    <label for="pollutant-type">اختر المؤشر:</label>
+                    <select id="pollutant-type">
+                        <option value="pm25">PM2.5</option>
+                        <option value="pm10">PM10</option>
+                        <option value="no2">NO2</option>
+                        <option value="o3">O3</option>
+                        <option value="overall">المؤشر العام</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label for="time-range">الفترة الزمنية:</label>
+                    <select id="time-range">
+                        <option value="now">الآن</option>
+                        <option value="today">اليوم</option>
+                        <option value="week">الأسبوع</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="map"></div>
+            
+            <div class="legend">
+                <h3>مفتاح الألوان:</h3>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <div class="color-box excellent"></div>
+                        <span>ممتاز (0-50)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box good"></div>
+                        <span>جيد (51-100)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box moderate"></div>
+                        <span>متوسط (101-150)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box unhealthy"></div>
+                        <span>غير صحي (151-200)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box very-unhealthy"></div>
+                        <span>سيء جداً (201-300)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="color-box hazardous"></div>
+                        <span>خطير (301+)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="neighborhoods-list">
+            <h2 class="section-title">أحياء نجران</h2>
+            <div class="neighborhoods-container" id="neighborhoods-list">
+                <!-- سيتم ملؤها بالجافاسكريبت -->
+            </div>
+        </section>
+    </main>
+
+    <!-- تذييل الصفحة -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="maps.html">الخرائط</a></li>
+                    <li><a href="tips.html">النصائح</a></li>
+                    <li><a href="about.html">عن المشروع</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>تواصل معنا</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 0175221234</li>
+                    <li><i class="fas fa-envelope"></i> najran@nqaa.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> نجران، السعودية</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>تابعنا</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 منصة نقاء. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // خريطة Leaflet لنجران
+        document.addEventListener('DOMContentLoaded', function() {
+            const map = L.map('map').setView([17.5656, 44.2289], 12);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // بيانات أحياء نجران
+            const neighborhoods = [
+                {name: "حي الملك فهد", coords: [17.5756, 44.2389], pm25: 35, pm10: 50, no2: 20, o3: 15},
+                {name: "حي النهضة", coords: [17.5856, 44.2189], pm25: 45, pm10: 65, no2: 30, o3: 20},
+                {name: "حي العزيزية", coords: [17.5556, 44.2089], pm25: 55, pm10: 75, no2: 40, o3: 25},
+                {name: "حي الفيصلية", coords: [17.5456, 44.2389], pm25: 40, pm10: 55, no2: 25, o3: 18},
+                {name: "حي الشفا", coords: [17.5356, 44.2589], pm25: 60, pm10: 85, no2: 45, o3: 30},
+                {name: "حي الربوة", coords: [17.5656, 44.2489], pm25: 50, pm10: 70, no2: 35, o3: 22}
+            ];
+            
+            // دالة لتحديد لون المؤشر حسب القيمة
+            function getColorByValue(value, type) {
+                let thresholds;
+                if (type === 'pm25') {
+                    thresholds = [0, 12, 35.4, 55.4, 150.4, 250.4, 500.4];
+                } else if (type === 'pm10') {
+                    thresholds = [0, 54, 154, 254, 354, 424, 604];
+                } else if (type === 'no2') {
+                    thresholds = [0, 53, 100, 360, 649, 1249, 2049];
+                } else if (type === 'o3') {
+                    thresholds = [0, 54, 70, 85, 105, 200, 404];
+                } else { // overall
+                    thresholds = [0, 50, 100, 150, 200, 300, 500];
+                }
+                
+                if (value <= thresholds[1]) return '#00e400'; // ممتاز
+                if (value <= thresholds[2]) return '#ffff00'; // جيد
+                if (value <= thresholds[3]) return '#ff7e00'; // متوسط
+                if (value <= thresholds[4]) return '#ff0000'; // غير صحي
+                if (value <= thresholds[5]) return '#8f3f97'; // سيء جداً
+                return '#7e0023'; // خطير
+            }
+            
+            // إضافة العلامات إلى الخريطة
+            neighborhoods.forEach(neighborhood => {
+                const overall = Math.round((neighborhood.pm25 + neighborhood.pm10 + neighborhood.no2 + neighborhood.o3) / 4);
+                const marker = L.circleMarker(neighborhood.coords, {
+                    radius: 15,
+                    fillColor: getColorByValue(overall, 'overall'),
+                    color: '#000',
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                }).addTo(map);
+                
+                marker.bindPopup(`
+                    <h3>${neighborhood.name}</h3>
+                    <p><strong>PM2.5:</strong> ${neighborhood.pm25} µg/m³</p>
+                    <p><strong>PM10:</strong> ${neighborhood.pm10} µg/m³</p>
+                    <p><strong>NO2:</strong> ${neighborhood.no2} ppb</p>
+                    <p><strong>O3:</strong> ${neighborhood.o3} ppb</p>
+                    <p><strong>المؤشر العام:</strong> ${overall}</p>
+                `);
+            });
+            
+            // تحديث الخريطة عند تغيير المؤشر
+            document.getElementById('pollutant-type').addEventListener('change', function() {
+                const type = this.value;
+                map.eachLayer(layer => {
+                    if (layer instanceof L.CircleMarker) {
+                        const neighborhood = neighborhoods.find(n => 
+                            n.coords[0] === layer.getLatLng().lat && 
+                            n.coords[1] === layer.getLatLng().lng
+                        );
+                        
+                        if (neighborhood) {
+                            const value = type === 'overall' ? 
+                                Math.round((neighborhood.pm25 + neighborhood.pm10 + neighborhood.no2 + neighborhood.o3) / 4) :
+                                neighborhood[type];
+                                
+                            layer.setStyle({
+                                fillColor: getColorByValue(value, type)
+                            });
+                            
+                            // تحديث النافذة المنبثقة
+                            const popupContent = `
+                                <h3>${neighborhood.name}</h3>
+                                <p><strong>PM2.5:</strong> ${neighborhood.pm25} µg/m³</p>
+                                <p><strong>PM10:</strong> ${neighborhood.pm10} µg/m³</p>
+                                <p><strong>NO2:</strong> ${neighborhood.no2} ppb</p>
+                                <p><strong>O3:</strong> ${neighborhood.o3} ppb</p>
+                                <p><strong>المؤشر العام:</strong> ${Math.round((neighborhood.pm25 + neighborhood.pm10 + neighborhood.no2 + neighborhood.o3) / 4)}</p>
+                            `;
+                            
+                            if (layer.isPopupOpen()) {
+                                layer.setPopupContent(popupContent);
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // عرض قائمة الأحياء
+            const neighborhoodsList = document.getElementById('neighborhoods-list');
+            neighborhoods.forEach(neighborhood => {
+                const overall = Math.round((neighborhood.pm25 + neighborhood.pm10 + neighborhood.no2 + neighborhood.o3) / 4);
+                const color = getColorByValue(overall, 'overall');
+                
+                const neighborhoodElement = document.createElement('div');
+                neighborhoodElement.className = 'neighborhood-card';
+                neighborhoodElement.style.borderLeft = `5px solid ${color}`;
+                neighborhoodElement.innerHTML = `
+                    <h3>${neighborhood.name}</h3>
+                    <div class="neighborhood-info">
+                        <div class="neighborhood-value">
+                            <span>المؤشر العام</span>
+                            <span class="value">${overall}</span>
+                        </div>
+                        <div class="neighborhood-details">
+                            <p><strong>PM2.5:</strong> ${neighborhood.pm25} µg/m³</p>
+                            <p><strong>PM10:</strong> ${neighborhood.pm10} µg/m³</p>
+                        </div>
+                    </div>
+                    <button class="btn small" onclick="map.setView([${neighborhood.coords[0]}, ${neighborhood.coords[1]}], 14)">عرض على الخريطة</button>
+                `;
+                
+                neighborhoodsList.appendChild(neighborhoodElement);
+            });
+        });
+    </script>
+</body>
+</html>
